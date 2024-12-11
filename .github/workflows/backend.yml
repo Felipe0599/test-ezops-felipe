@@ -1,4 +1,4 @@
-name: Build & Deploy
+name: Backend Build & Deploy
 
 on:
   workflow_call:
@@ -39,12 +39,10 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }} 
 
-      - name: Build Docker images
+      - name: Build and Push Docker images
         run: |
+          cd ..
           docker-compose -f docker-compose.yml build
-
-      - name: Push Docker images to Docker Hub
-        run: |
           docker-compose -f docker-compose.yml push    
 
 
