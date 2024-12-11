@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+      containers:
+      - name: backend
+        image: felipe0599/teste-ezops-cloud-backend:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DB_HOST
+          value: "postgres"
+        - name: DB_NAME
+          value: "mydatabase"
+        - name: DB_USER
+          value: "myuser"
+        - name: DB_PASSWORD
+          value: "mypassword"
+        - name: DB_PORT
+          value: "5432"  

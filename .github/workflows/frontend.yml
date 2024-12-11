@@ -1,0 +1,48 @@
+name: Front-end Build & Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install Python
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python3
+
+    - name: Change directory to vuejs-ezops-test
+      working-directory: vuejs-ezops-test
+      run: |
+        npm install
+        npm run build
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: Install AWS CLI
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y awscli
+
+    - name: Check current directory
+      run: pwd
+    - name: Deploy to S3
+      run: |
+        aws s3 sync ./vuejs-ezops-test/dist s3://test-felipe-terraform-state
