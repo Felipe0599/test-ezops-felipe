@@ -5,7 +5,7 @@ services:
     build:
       context: ./vuejs-ezops-test
       dockerfile: Dockerfile
-    image: felipe0599/teste-ezops-cloud-frontend:latest
+    container_name: vuejs-test-felipe
     ports:
       - "8080:8080"   # Expose frontend port 8080
     volumes:
@@ -17,7 +17,7 @@ services:
     build:
       context: ./rest-api-ezops-test
       dockerfile: Dockerfile
-    image: felipe0599/teste-ezops-cloud-backend:latest
+    container_name: rest-api-test-felipe
     environment:
       - DB_HOST=postgres
       - DB_PORT=5432
