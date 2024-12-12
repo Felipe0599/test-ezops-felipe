@@ -1,5 +1,4 @@
 node_modules/
 devops.txt
 .docker
-Dockerfile
 docker-compose.yml
