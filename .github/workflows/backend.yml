@@ -48,7 +48,7 @@ jobs:
         run: |
           cd rest-api-ezops-test/
           docker build -t ${{ secrets.DOCKER_USERNAME }}/teste-ezops-cloud-backend:latest .
-          docker push ${{ secrets.DOCKER_USERNAME }}/teste-ezops-cloud-backend:lates    
+          docker push ${{ secrets.DOCKER_USERNAME }}/teste-ezops-cloud-backend:latest    
 
 
   deploy-kubernetes:
