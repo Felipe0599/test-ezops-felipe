@@ -1,5 +1,5 @@
 # Build from a official Node image
-FROM node:14 AS build
+FROM node:14
 
 #Defines the working directory
 WORKDIR /usr/src/app
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # Command to start the server
-CMD ["node", "server.js"]
+CMD ["node", "server/server.js"]
