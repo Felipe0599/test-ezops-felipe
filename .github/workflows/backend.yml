@@ -98,3 +98,4 @@ jobs:
             kubectl apply -f Kubernetes/postgres-cmap.yaml
             kubectl apply -f Kubernetes/postgres-deploy.yaml
             kubectl apply -f Kubernetes/postgres-service.yaml
+            kubectl apply -f Kubernetes/postgres-pvc.yaml
