@@ -95,6 +95,6 @@ jobs:
             # Apply Kubernetes yaml
             kubectl apply -f Kubernetes/backend-deploy.yaml
             kubectl apply -f Kubernetes/backend-service.yaml
-            kubectl apply -f postgres-cmap.yaml
-            kubectl apply -f postgres-deploy.yaml
-            kubectl apply -f postgres-service.yaml
+            kubectl apply -f Kubernetes/postgres-cmap.yaml
+            kubectl apply -f Kubernetes/postgres-deploy.yaml
+            kubectl apply -f Kubernetes/postgres-service.yaml
