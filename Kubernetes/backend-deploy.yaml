@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: backend
+    spec: 
       containers:
       - name: backend
         image: felipe0599/teste-ezops-cloud-backend:latest
@@ -27,4 +28,4 @@ spec:
         - name: DB_PASSWORD
           value: "mypassword"
         - name: DB_PORT
-          value: "5432"  
+          value: "5432"
