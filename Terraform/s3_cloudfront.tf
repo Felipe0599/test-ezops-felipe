@@ -20,7 +20,7 @@ resource "aws_cloudfront_distribution" "frontend_distribution" {
 
   enabled             = true
   is_ipv6_enabled     = true
-  comment             = "CloudFront distribution for Vue.js frontend Test Felipe"
+  comment             = "CloudFront Test Felipe"
   default_root_object = "index.html"
 
   default_cache_behavior {
@@ -52,10 +52,10 @@ resource "aws_cloudfront_distribution" "frontend_distribution" {
   }
 
   tags = {
-    Name = "Vue.js Frontend Distribution Test Felipe"
+    Name = "Frontend Test Felipe"
   }
 }
 
 resource "aws_cloudfront_origin_access_identity" "frontend_origin_access_identity" {
-  comment = "Access identity for S3 bucket Test Felipe"
+  comment = "OAI for S3 bucket Test Felipe"
 }

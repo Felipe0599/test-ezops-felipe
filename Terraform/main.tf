@@ -16,25 +16,25 @@ resource "aws_s3_bucket" "terraform_state" {
 }
 
 
-# terraform {
-#   required_providers {
-#     aws = {
-#       source  = "hashicorp/aws"
-#       version = "~> 5.0"
-#     }
-#   }
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
 
-#   backend "s3" {
-#     bucket         = "test-felipe-terraform-state"
-#     key            = "state/terraform.tfstate"
-#     region         = "us-east-1"
-#     dynamodb_table = "test-felipe-terraform-lock"
-#     encrypt        = true
-#     acl            = "private"
-#   }
-# }
+  backend "s3" {
+    bucket         = "test-felipe-terraform-state"
+    key            = "state/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "test-felipe-terraform-locks"
+    encrypt        = true
+    acl            = "private"
+  }
+}
 
-# Criar a tabela DynamoDB
+#Criar a tabela DynamoDB
 resource "aws_dynamodb_table" "terraform_locks" {
   name         = "test-felipe-terraform-locks"  
   billing_mode = "PAY_PER_REQUEST"  

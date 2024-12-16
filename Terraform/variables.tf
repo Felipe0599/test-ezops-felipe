@@ -33,3 +33,8 @@ variable "environment" {
   type        = string
   default     = "dev"
 }
+
+variable "instance_ip" {
+  description = "IP of the Kubernetes Instance"
+  type        = string
+}
