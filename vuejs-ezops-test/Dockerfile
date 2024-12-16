@@ -23,7 +23,7 @@ FROM nginx:alpine
 COPY --from=build /app/dist /usr/share/nginx/html
 
 # Expose the default nginx port
-EXPOSE 8080
+EXPOSE 80
 
 # Command to start the nginx server and not let it run in the background
 CMD ["nginx", "-g", "daemon off;"]

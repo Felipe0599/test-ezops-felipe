@@ -7,9 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: vuejs-test-felipe
     ports:
-      - "8080:8080"   # Expose frontend port 8080
-    volumes:
-      - ./vuejs-ezops-test:/app
+      - "8080:80"   # Expose frontend port 8080
     networks:
       - app_network
 

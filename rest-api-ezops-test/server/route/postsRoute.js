@@ -2,6 +2,10 @@ const express = require('express');
 const router = express.Router();
 const postsService = require('../service/postsService');
 
+router.get('/', (req, res) => {
+    res.send('Welcome to the Posts API!');
+});
+
 router.get('/posts', async function (req, res, next) {
 	try {
 		const posts = await postsService.getPosts();
